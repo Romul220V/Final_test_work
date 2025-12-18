@@ -1,5 +1,9 @@
 from selenium.webdriver.common.by import By
 
+class BasketLocators():
+    BASKET_NOT_EMPTY = (By.ID, "basket_formset")
+    EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner > p:nth-child(1)")
+
 class BasketPageLocators():
     ADD_2_BASKET = (By.ID, "add_to_basket_form")
     BOOK_TRUE_NAME = (By.CSS_SELECTOR, "div.col-sm-6:nth-child(2) > h1:nth-child(1)")
@@ -10,6 +14,7 @@ class BasketPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group > a:nth-child(1)")
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
