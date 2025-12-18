@@ -31,3 +31,9 @@ class ProductPage(BasePage):
         book_price = self.browser.find_element(*BasketPageLocators.BOOK_PRICE)
         print(book_price.text)
     
+    def no_msg(self):
+        assert self.is_not_element_present(*BasketPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        print(self.browser.find_element(*BasketPageLocators.SUCCESS_MESSAGE).text)
+
+    def msg_gone(self):
+        assert self.is_disappeared(*BasketPageLocators.SUCCESS_MESSAGE), "Success message has not disappeared, but should not be"
