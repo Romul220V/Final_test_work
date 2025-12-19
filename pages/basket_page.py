@@ -1,8 +1,6 @@
 from .base_page import BasePage
 from .locators import BasketLocators
 
-
-
 class BasketPage(BasePage):
 
     def basket_not_empty(self):
