@@ -1,3 +1,22 @@
+# import pytest
+# import time
+# from selenium.webdriver.common.by import By
+# from .pages.product_page import ProductPage
+# from .pages.basket_page import BasketPage
+# from .pages.login_page import LoginPage
+
+# class TestLoginFromMainPage():
+#     def test_guest_can_go_to_login_page(self,browser):
+#         link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+#         browser.get(link)
+#         page = LoginPage(browser, link)
+#         page.open()
+#         page.register_new_user()
+#         page.should_be_authorized_user()
+
+
+
+
 import pytest
 import time
 from selenium.webdriver.common.by import By
@@ -9,23 +28,26 @@ class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+        browser.get(link)
         page = LoginPage(browser, link)
         page.open()
         page.register_new_user()
         page.should_be_authorized_user()
 
-    def test_user_can_add_product_to_basket(self, browser):
-        page = ProductPage(browser, "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/")
+
+    def test_user_cant_see_success_message(self, browser):
+
+        page = ProductPage(self, browser)
         page.open()
+        page.no_msg()
+
+    def test_user_can_add_product_to_basket(self, browser):
+
+        page = ProductPage(self, browser)
         page.should_be_basket_button()
         page.basket_button_click()
         page.true_name()
-        page.book_price()
-
-    def test_user_cant_see_success_message(self, browser):
-        page = ProductPage(browser, "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/")
-        page.open()
-        page.no_msg()
+        page.book_price()   
 
 
 @pytest.mark.skip

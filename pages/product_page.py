@@ -11,7 +11,7 @@ class ProductPage(BasePage):
     def basket_button_click(self):
         basket_button = self.browser.find_element(*BasketPageLocators.ADD_2_BASKET)
         basket_button.click()
-        BasePage.solve_quiz_and_get_code(self)
+        # BasePage.solve_quiz_and_get_code(self)
     
     def true_name(self):
         true_name = self.browser.find_element(*BasketPageLocators.BOOK_TRUE_NAME)
