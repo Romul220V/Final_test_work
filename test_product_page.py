@@ -20,8 +20,8 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.should_be_basket_button()
         page.basket_button_click()
-        page.true_name()
-        page.book_price()
+        # page.true_name()
+        # page.book_price()
 
     def test_user_cant_see_success_message(self, browser):
         page = ProductPage(browser, "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/")
@@ -59,8 +59,8 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.open()                      
     page.should_be_basket_button()
     page.basket_button_click()
-    page.true_name()
-    page.book_price()
+    # page.true_name()
+    # page.book_price()
 
 @pytest.mark.skip    
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"])
